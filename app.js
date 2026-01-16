@@ -1,5 +1,5 @@
 // ====== Config ======
-const GAS_URL = "https://script.google.com/macros/s/AKfycbxcrL1fmxsYT5DNZ34RqS7wz9wH_-XvIVYCV7pDyy9wEjOoFCzrMitGYzWeDSwfyhb_2w/exec"; // tu webapp
+const GAS_URL = "https://script.google.com/macros/s/AKfycby3D1qtRlE9DdEcvCtSA5vxquBEndYpLjOYFJjsHdQ5YId4IwOky0mfW8AO53OimhLFcQ/exec"; // tu webapp
 const ROLE = "administrativo";
 
 // Local storage por rol (separa docentes vs admins si luego lo reutilizas)
