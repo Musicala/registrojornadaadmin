@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Administrativos · Registro QR · Musicala</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="topbar">
+      <img src="./logo.png" alt="Musicala" class="logo" />
+      <div class="brand">
+        <div class="brand__row">
+          <h1>Registro QR · Administrativos</h1>
+          <span class="pill" id="rolePill">administrativo</span>
+        </div>
+        <p class="subtitle">Escanea para registrar tu <strong>ingreso</strong> o <strong>salida</strong>.</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="grid controls">
+        <div class="field">
+          <label for="practicanteSelect">Administrativo</label>
+          <select id="practicanteSelect"></select>
+          <small class="hint">La lista se carga desde la hoja <strong>Miembros</strong>.</small>
+        </div>
+
+        <div class="field">
+          <label for="cameraSelect">Cámara</label>
+          <div class="inline">
+            <select id="cameraSelect"></select>
+            <button id="btnPerms" class="btn ghost" title="Pedir permisos y refrescar cámaras">Permitir/Actualizar</button>
+            <button id="btnFlip" class="btn ghost" title="Cambiar entre cámaras">Voltear</button>
+          </div>
+          <small class="hint">En celular, esto solo sirve en <strong>HTTPS</strong>.</small>
+        </div>
+
+        <div class="field actions">
+          <button id="btnStart" class="btn primary">Iniciar cámara</button>
+          <button id="btnStop" class="btn ghost" disabled>Detener</button>
+        </div>
+      </div>
+
+      <div id="reader" class="reader"></div>
+
+      <div class="panel">
+        <h2>Último resultado</h2>
+        <div id="result" class="result">Aún sin leer…</div>
+        <p class="note">Tip: el registro real queda en Google Sheets. Esto de acá solo te lo muestra bonito 🙂</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card__head">
+        <h2>Resumen local de hoy</h2>
+        <button id="btnClearLocal" class="btn ghost small" title="Borrar histórico local (no borra la Sheet)">Borrar local</button>
+      </div>
+      <div id="summary"></div>
+    </section>
+
+    <footer class="footnote">
+      El QR puede contener “ADM-INGRESO” o “ADM-SALIDA”. El sistema toma la <strong>hora del escaneo</strong>.
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

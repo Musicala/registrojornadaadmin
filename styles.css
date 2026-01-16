@@ -1,0 +1,172 @@
+/* Reset */
+* { box-sizing: border-box; }
+html,body{height:100%;}
+
+:root{
+  /* Musicala palette */
+  --m-blue:#0C41C4;
+  --m-purple:#680DBF;
+  --m-magenta:#CE0071;
+
+  /* Light UI */
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --panel:#f3f4ff;
+  --stroke:rgba(18, 28, 60, .12);
+  --text:#11162a;
+  --muted:#56607a;
+  --shadow: 0 10px 30px rgba(12,65,196,.10);
+}
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color:var(--text);
+  background:
+    radial-gradient(900px 600px at 10% -10%, rgba(12,65,196,.10), transparent 60%),
+    radial-gradient(900px 600px at 110% 10%, rgba(104,13,191,.10), transparent 55%),
+    linear-gradient(180deg, #ffffff, var(--bg) 35%);
+}
+
+.container{ max-width: 980px; margin: 24px auto; padding: 16px; }
+
+.topbar{ display:flex; align-items:center; gap:16px; margin-bottom:14px; }
+.logo{ width:120px; height:auto; }
+.brand h1{ margin:0; font-weight:900; letter-spacing:.2px; }
+.brand__row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.subtitle{ margin:.25rem 0 0; color:var(--muted); }
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:700;
+  color:#fff;
+  background: linear-gradient(90deg, var(--m-blue), var(--m-purple) 50%, var(--m-magenta));
+  box-shadow: 0 8px 18px rgba(12,65,196,.18);
+}
+
+.card{
+  background: var(--card);
+  border:1px solid var(--stroke);
+  border-radius: 18px;
+  padding:16px;
+  margin-bottom:16px;
+  box-shadow: var(--shadow);
+}
+
+.card__head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.grid.controls{
+  display:grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap:12px;
+  align-items:end;
+  margin-bottom:12px;
+}
+
+.field label{ display:block; font-size:.9rem; color:var(--muted); margin-bottom:6px; }
+.field select{
+  width:100%;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid var(--stroke);
+  background:#fff;
+  color:var(--text);
+  outline:none;
+}
+.field select:focus{ border-color: rgba(12,65,196,.45); box-shadow: 0 0 0 4px rgba(12,65,196,.10); }
+
+.inline{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+
+.actions{ display:flex; gap:8px; justify-content:flex-end; }
+
+.btn{
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid var(--stroke);
+  background:#fff;
+  color:var(--text);
+  font-weight:800;
+  cursor:pointer;
+}
+.btn:hover{ box-shadow: 0 10px 22px rgba(17,22,42,.08); transform: translateY(-1px); }
+.btn:active{ transform: translateY(0); }
+.btn:disabled{ opacity:.6; cursor:not-allowed; transform:none; }
+
+.btn.primary{
+  border:0;
+  color:#fff;
+  background: linear-gradient(90deg, var(--m-blue), var(--m-purple) 50%, var(--m-magenta));
+}
+.btn.ghost{ background:transparent; }
+.btn.small{ padding:8px 10px; font-size:.9rem; }
+
+.reader{
+  width:100%;
+  aspect-ratio: 16 / 9;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--stroke);
+  margin-top:8px;
+  background: #ffffff;
+}
+
+.panel{
+  margin-top:14px;
+  padding:12px;
+  border:1px dashed rgba(12,65,196,.25);
+  border-radius:14px;
+  background: linear-gradient(180deg, #ffffff, var(--panel));
+}
+
+.result{
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  padding:10px 12px;
+  border-radius:12px;
+  background: #fff;
+  border:1px dashed rgba(12,65,196,.25);
+}
+
+.note{ color:var(--muted); font-size:.9rem; margin:.5rem 0 0; }
+.hint{ display:block; color:var(--muted); font-size:.85rem; margin-top:6px; }
+.footnote{ margin-top: 16px; font-size: 14px; color: var(--muted); }
+
+/* Tabla/resumen simple */
+#summary{ font-size:.95rem; }
+#summary .row{
+  display:grid;
+  grid-template-columns: 110px 1fr 120px 120px;
+  gap:8px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(17,22,42,.08);
+}
+#summary .row.header{
+  font-weight:900;
+  color:var(--muted);
+  border-bottom:1px solid rgba(17,22,42,.16);
+}
+
+/* Mobile */
+@media (max-width: 680px) {
+  .container { padding: 12px; }
+  .topbar { align-items: flex-start; gap: 10px; }
+  .logo { width: 88px; }
+  .brand h1 { font-size: 1.25rem; line-height: 1.2; }
+  .subtitle { font-size: .95rem; }
+
+  .grid.controls { grid-template-columns: 1fr; gap: 10px; }
+  .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .btn { width: 100%; padding: 12px 14px; font-size: 1rem; }
+  #cameraSelect, label[for="cameraSelect"] { display: none !important; }
+  .reader { aspect-ratio: auto; min-height: 280px; }
+}
